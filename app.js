@@ -1,44 +1,52 @@
-let amigos = []
+let amigos = [];
 
 function adicionarAmigo() {
-    let nome = document.getElementById('amigo').value
-    if(nome != "" ) {
-        amigos.push(nome)
-        limparInput()
-        listarAmigos()
-    } else {
-        alert("Por favor, insira um nome.")
-    }
+  const nomeInput = document.getElementById("amigo");
+  const nome = nomeInput.value.trim();
+
+  if (nome === "") {
+    alert("Por favor, insira um nome.");
+    return;
+  }
+
+  amigos.push(nome);
+  limparCampo();
+  exibirLista();
 }
 
-// Limpar campo do texto
-function limparInput(){
-    document.getElementById('amigo').value = ""
+function limparCampo() {
+  const nomeInput = document.getElementById("amigo");
+  nomeInput.value = "";
 }
 
-// Listar amigos
-function listarAmigos(){
-    let lista = document.getElementById('listaAmigos')
-    
-    lista.innerHTML = ""
-    for (let i = 0; i < amigos.length; i++){
-        let novaLinha = document.createElement("li")
-        novaLinha.textContent = amigos[i]
-        lista.appendChild(novaLinha)
-    }
-
+function limparLista() {
+  const lista = document.getElementById("listaAmigos");
+  lista.innerHTML = "";
 }
 
-// Sortear amigo
+function exibirLista() {
+  const lista = document.getElementById("listaAmigos");
+  limparLista();
 
-function sortearAmigo(){
-    if (amigos.length == 0){
-        alert("Não há nenhum amigo para ser sorteado.")
-        return
-    }
+  for (let i = 0; i < amigos.length; i++) {
+    const li = document.createElement("li");
+    li.textContent = amigos[i];
+    lista.appendChild(li);
+  }
+}
 
-    let indice = Math.floor(Math.random() * amigos.length)
-    let sorteado = amigos[indice]
+function sortearAmigo() {
+  if (amigos.length === 0) {
+    alert("Não há nenhum amigo para ser sorteado.");
+    return;
+  }
 
-    document.getElementById('resultado').innerHTML = sorteado
+  const indiceSorteado = Math.floor(Math.random() * amigos.length);
+  const amigoSorteado = amigos[indiceSorteado];
+
+  limparCampo();
+  limparLista();
+
+  const resultado = document.getElementById("resultado");
+  resultado.innerHTML = `<li>Seu amigo secreto é: ${amigoSorteado}</li>`;
 }
