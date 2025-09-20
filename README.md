@@ -1,10 +1,12 @@
-# Sorteador de Amigo Secreto
+# 🎁 Sorteador de Amigo Secreto
 
 Este é um projeto desenvolvido como parte do **Challenge do Oracle ONE - Alura**. A aplicação permite simular um sorteio de Amigo Secreto, permitindo que o usuário adicione nomes à lista e, em seguida, sorteie aleatoriamente um amigo.
-
+ 
 ## 📌 Sobre o Projeto
 
 A ideia é inserir os nomes dos participantes em um campo de texto e, ao clicar no botão **Sortear**, o sistema realiza o sorteio aleatório garantindo que ninguém tire a si mesmo.
+
+🔗 Link para visualizar: https://grazygoncalvess.github.io/ONE-Challenge/
 
 ## 🛠 Tecnologias Utilizadas
 
